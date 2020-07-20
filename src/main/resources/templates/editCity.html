@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h3>Them thanh pho</h3>
+    <form th:action="@{/edit}" th:object="${city}" method="post">
+        <input th:type="hidden" name="id" th:field="*{id}">
+        <table>
+            <tr>
+                <td>Ten</td>
+                <td><input type="text" th:field ="*{name}" ></td>
+            </tr>
+            <tr>
+                <td>Quoc gia</td>
+                <td>
+                    <input type="text" th:field ="*{national}" >
+                </td>
+            </tr>
+            <tr>
+                <td>Dien tich</td>
+                <td>
+                    <input type="text" th:field ="*{area}" >
+                </td>
+            </tr>
+            <tr>
+                <td>Dan so</td>
+                <td>
+                    <input type="text" th:field ="*{popular}" >
+                </td>
+            </tr>
+            <tr>
+                <td>GDP</td>
+                <td>
+                    <input type="text" th:field ="*{gpd}" >
+                </td>
+            </tr>
+            <tr>
+                <td>Mo ta</td>
+                <td>
+                    <textarea name="" id="" cols="30" rows="10" th:field ="*{describer}" ></textarea>
+                </td>
+            </tr>
+        </table>
+        <button>Save</button>
+    </form>
+</div>
+</body>
+</html>

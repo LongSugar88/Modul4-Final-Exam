@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h3>Them thanh pho</h3>
+    <form action="/addCity" th:object="${city}" method="post">
+        <table>
+            <tr>
+                <td>Ten: <input type="text" th:field ="*{name}" placeholder="Ten"></td>
+            </tr>
+<!--            <tr>-->
+<!--                <td>-->
+<!--                    Quoc gia: <input type="text" th:field ="*{national}" placeholder="Quoc gia">-->
+<!--                </td>-->
+<!--            </tr>-->
+            <tr>
+                <td>
+                    <select th:field="*{national}" style="width: 200px">
+                        <option th:each="na : ${nationalList}"
+                                th:value="${na}"
+                                th:text="${na}"></option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Dien tich: <input type="text" th:field ="*{area}" placeholder="Dien tich">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Dan so: <input type="text" th:field ="*{popular}" placeholder="Dan so">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    GDP: <input type="text" th:field ="*{gpd}" placeholder="GDP">
+                </td>
+            </tr>
+            <tr>
+               <td>
+                   Mota: <textarea name="" id="" cols="30" rows="10" th:field ="*{describer}" ></textarea>
+               </td>
+            </tr>
+        </table>
+        <button>Save</button>
+    </form>
+</div>
+</body>
+</html>

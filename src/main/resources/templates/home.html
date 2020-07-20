@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<style>
+    th{
+        background: #acff12;
+        width: 150px;
+        height: 30px;
+    }
+    td{
+        height: 50px;
+    }
+    table
+    {
+        border-collapse: collapse;
+    }
+</style>
+<body>
+<div>
+    <div>
+        <h3>DANH SACH THANH PHO</h3>
+        <a th:href="@{/addCity}" style="border: 1px; color: Blue">Them thanh pho</a>
+    </div>
+
+    <table border="1px">
+        <tr>
+            <th>ID</th>
+            <th>Thanh pho</th>
+            <th>Quoc gia</th>
+            <th></th>
+        </tr>
+        <tr th:each="city :${cityList}">
+            <td style="text-align: center; width: 50px">
+                <div th:text="${city.id}"></div>
+            </td>
+            <td>
+                <a th:href="'/detail/'+${city.id}" th:text="${city.name}"></a>
+            </td>
+            <td>
+                <div th:text="${city.national}"></div>
+            </td>
+            <td colspan="2">
+                <a th:href="@{'/edit/'+${city.id}}">Chinh sua |</a>
+                <a th:href="@{'/delete/'+${city.id}}">Xoa</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
